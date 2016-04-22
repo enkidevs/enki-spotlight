@@ -10,7 +10,7 @@ const Home = React.createClass({
   propTypes: {
     getSearchResults: React.PropTypes.func.isRequired
   },
-  
+
   render() {
     const { getSearchResults } = this.props;
     return (
@@ -18,21 +18,20 @@ const Home = React.createClass({
         <div className={styles.container}>
           <h2>Enki Spotlight</h2>
           <input type="text" className={styles.ekspotlightsearch} name="ek-spotlight-search" placeholder="Search..."
-            onChange={ getSearchResults }/>
+            onChange={ this.handleSearchChange }/>
         </div>
       </div>
     );
   },
 
-  handleChange(e) {
-    console.log(e.target.value);
-    
-  },
+  handleSearchChange(e) {
+    this.props.getSearchResults(e.target.value);
+  }
 });
 
 function mapStateToProps(state) {
   return {
-    counter: state.getSearchResults
+    getSearchResults: state.getSearchResults
   };
 }
 
