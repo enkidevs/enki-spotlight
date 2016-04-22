@@ -9,7 +9,7 @@ export default class Home extends Component {
       <div>
         <div className={styles.container}>
           <h2>Enki Spotlight</h2>
-          <input type="text" name="ek-spotlight-search" placeholder="Search..." />
+          <input type="text" className={styles.ekspotlightsearch} name="ek-spotlight-search" placeholder="Search..." />
         </div>
       </div>
     );
