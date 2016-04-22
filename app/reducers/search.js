@@ -3,7 +3,6 @@ import { GET_RESULTS } from '../actions/search';
 export default function search(state = { }, action) {
   // debugger;
   if (action.type === GET_RESULTS) {
-    debugger;
     state["enki_insights"] = action.payload.map(function(el) {
       let insight = {};
       insight["Title"] = el.headline;
