@@ -4,7 +4,40 @@ body {
   height: 100vh;
   background-color: #202025;
   font-family: Arial, Helvetica, Helvetica Neue;
-  overflow-y: hidden;
+  overflow-y: scroll;
+}
+
+.main-wrapper {
+  position: absolute;
+  top: 10px;
+  display: flex;
+  margin: 0px auto;
+  text-align: center;
+}
+
+iframe {
+  flex-grow: 3;
+  height: 100vh;
+  min-width: 400px;
+}
+ul {
+  padding-left: 0;
+}
+.main-wrapper h2 {
+  font-size: 5rem;
+}
+
+.main-wrapper a {
+  font-size: 1.4rem;
+}
+
+.ekspotlightsearch {
+  height: 32px;
+  font-size: 24px;
+}
+
+.main-wrapper {
+  display: flex;
 }
 
 h2 {
@@ -27,6 +60,14 @@ a {
   color: white;
   opacity: .75;
   text-decoration: none;
+}
+
+.insight-link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.selected-insight {
+  color: #FF6F31;
 }
 
 a:hover {

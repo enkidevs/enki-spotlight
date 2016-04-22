@@ -1,20 +1,62 @@
-.container {
+.main-wrapper {
   position: absolute;
   top: 10px;
+  display: flex;
   margin: 0px auto;
   text-align: center;
 }
 
-.container h2 {
+iframe {
+  flex-grow: 3;
+  height: 100vh;
+  min-width: 400px;
+}
+ul {
+  padding-left: 0;
+}
+.main-wrapper h2 {
   font-size: 5rem;
 }
 
-.container a {
+.main-wrapper a {
   font-size: 1.4rem;
 }
 
 .ekspotlightsearch {
-  width: 500px;
   height: 32px;
   font-size: 24px;
+}
+
+.main-wrapper {
+  display: flex;
+}
+
+h2 {
+  margin: 0;
+  font-size: 2.25rem;
+  font-weight: bold;
+  letter-spacing: -.025em;
+  color: #fff;
+}
+
+p {
+  font-size: 24px;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: white;
+  opacity: .75;
+  text-decoration: none;
+}
+
+.insight-link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.selected-insight {
+  color: green;
 }
