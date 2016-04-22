@@ -25,10 +25,11 @@ const Home = React.createClass({
           <h2>Enki Spotlight</h2>
           <input type="text" className={styles.ekspotlightsearch} name="ek-spotlight-search" placeholder="Search..."
             onChange={ this.handleSearchChange }/>
+          <iframe style={{width: '480px', height: '640px'}}></iframe>
           <ul>
           {
             enkiInsights && enkiInsights.map((insight) => {
-              return <li><a href={insight.Link}>{insight.Title}</a></li>
+              return <li><span onClick={ () => this.openElectronWindow(insight.Link) }>{insight.Title}</span></li>
             })
           }
           </ul>
@@ -39,6 +40,11 @@ const Home = React.createClass({
 
   handleSearchChange(e) {
     this.props.getSearchResults(e.target.value);
+  },
+  
+  openElectronWindow(link) {
+    console.log(link);
+    
   }
 });
 

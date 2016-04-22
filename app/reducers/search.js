@@ -8,7 +8,7 @@ export default function search(state = { }, action) {
       enki_insights: action.payload.map((el) => {
         const insight = {};
         insight.Title = el.headline;
-        insight.Link = 'http://localhost:3000/insight/' + el.id;
+        insight.Link = 'http://10.5.19.203:3000/insight/' + el.id;
         return insight;
       }),
     };
