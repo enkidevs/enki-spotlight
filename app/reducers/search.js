@@ -3,16 +3,15 @@ import { GET_RESULTS } from '../actions/search';
 export default function search(state = { }, action) {
   // debugger;
   if (action.type === GET_RESULTS) {
-    state["enki_insights"] = action.payload.map(function(el) {
-      let insight = {};
-      insight["Title"] = el.headline;
-      insight["Link"] = 'https://insights.enki.com/insight/' + el.id;
-      return insight;
-    });
+    return {
+      ...state,
+      enki_insights: action.payload.map((el) => {
+        const insight = {};
+        insight.Title = el.headline;
+        insight.Link = 'http://localhost:3000/insight/' + el.id;
+        return insight;
+      }),
+    };
   }
-
-  console.log("The reducer from hell");
-  console.log(state);
-
   return state;
 }

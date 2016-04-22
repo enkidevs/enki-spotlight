@@ -11,6 +11,12 @@ const Home = React.createClass({
     enkiInsights: React.PropTypes.array
   },
 
+  componentWillReceiveProps(newProps) {
+    if (this.props.enkiInsights && this.props.enkiInsights.length !== newProps.enkiInsights.length) {
+      console.log(newProps.enkiInsights);
+    }
+  },
+
   render() {
     const { getSearchResults, enkiInsights } = this.props;
     return (
@@ -21,8 +27,8 @@ const Home = React.createClass({
             onChange={ this.handleSearchChange }/>
           <ul>
           {
-            enkiInsights && enkiInsights.map(function(insight) {
-              <li><a href="{insight.Link}">{insight.Title}</a></li> 
+            enkiInsights && enkiInsights.map((insight) => {
+              return <li><a href={insight.Link}>{insight.Title}</a></li>
             })
           }
           </ul>
@@ -37,9 +43,10 @@ const Home = React.createClass({
 });
 
 function mapStateToProps(state) {
+  console.log(state);
   return {
     getSearchResults: state.getSearchResults,
-    enkiInsights: state.enki_insights
+    enkiInsights: state.search['enki_insights'],
   };
 }
 

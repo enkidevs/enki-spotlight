@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const API_ENDPOINT = 'http://insights-staging.enki.com/api/insights/live/0?all=true';
-export const TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1NTQzNzM1MDYxY2EyOWVhMDAzYTBjMjMiLCJleHAiOjE0OTI4NTUzMTc2ODJ9.Tf0eIX-a7wHYTaCJUi5C4PAB-k6XjSEdgksGreFSYQY';
+export const API_ENDPOINT = 'http://localhost:3000/api/insights/live/0?all=true';
+export const TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1NzE5ZjRjNjE0ZTBkOGIyMjJhNzRhYjQiLCJleHAiOjE0ODMyMjg4MDAwMDB9.Eq4vJITcun_8wRCKACQKnjxCKLB293lyafgulHU4eeI';
 
 export const GET_RESULTS = 'GET_RESULTS';
 
@@ -26,5 +26,9 @@ export function getSearchResults(term) {
       .catch(function (err) {
         console.log(err);
       });
-  }
+    return {
+      type: GET_RESULTS,
+      ready: false,
+    };
+  };
 }
