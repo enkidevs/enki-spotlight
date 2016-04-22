@@ -11,35 +11,38 @@ const Home = React.createClass({
     enkiInsights: React.PropTypes.array
   },
 
-  componentWillReceiveProps(newProps) {
-    if (this.props.enkiInsights && this.props.enkiInsights.length !== newProps.enkiInsights.length) {
-      console.log(newProps.enkiInsights);
-    }
+  getInitialState() {
+    return {
+      selectedInsight: {},
+    };
+  },
+
+  handleSearchChange(e) {
+    this.props.getSearchResults(e.target.value);
   },
 
   render() {
     const { getSearchResults, enkiInsights } = this.props;
+    const selectedInsight = this.state;
     return (
       <div>
         <div className={styles.container}>
           <h2>Enki Spotlight</h2>
-          <input type="text" className={styles.ekspotlightsearch} name="ek-spotlight-search" placeholder="Search..."
-            onChange={ this.handleSearchChange }/>
+          <input type="text" className={styles.ekspotlightsearch}
+            name="ek-spotlight-search" placeholder="Search..."
+            onChange={ this.handleSearchChange } />
           <ul>
           {
             enkiInsights && enkiInsights.map((insight) => {
               return <li><a href={insight.Link}>{insight.Title}</a></li>
             })
           }
-          </ul>
+        </ul>
+        {selectedInsight.Link && <iframe src={selectedInsight.Link} />}
         </div>
       </div>
     );
   },
-
-  handleSearchChange(e) {
-    this.props.getSearchResults(e.target.value);
-  }
 });
 
 function mapStateToProps(state) {
