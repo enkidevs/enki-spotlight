@@ -2,15 +2,23 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import styles from './Home.css';
 
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as SearchActions from '../actions/search';
 
 const Home = React.createClass({
+  propTypes: {
+    getSearchResults: React.PropTypes.func.isRequired
+  },
+  
   render() {
+    const { getSearchResults } = this.props;
     return (
       <div>
         <div className={styles.container}>
           <h2>Enki Spotlight</h2>
           <input type="text" className={styles.ekspotlightsearch} name="ek-spotlight-search" placeholder="Search..."
-            onChange={this.handleChange}/>
+            onChange={ getSearchResults }/>
         </div>
       </div>
     );
@@ -18,8 +26,19 @@ const Home = React.createClass({
 
   handleChange(e) {
     console.log(e.target.value);
-
+    
   },
 });
 
-module.exports = Home;
+function mapStateToProps(state) {
+  return {
+    counter: state.getSearchResults
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(SearchActions, dispatch);
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
