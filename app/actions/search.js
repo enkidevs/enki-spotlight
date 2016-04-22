@@ -6,13 +6,15 @@ export const TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1NTQzNzM1M
 export function getSearchResults(term) {
   axios.get(API_ENDPOINT, {
           params: {
-              'search': term,
+              search: term,
               limited: true,
           },
           headers: {'x-access-token': TOKEN},
       })
       .then(function (response) {
-          console.log(response);
+          return {
+              payload: response
+          };
       })
       .catch(function (response) {
           console.log(response);
