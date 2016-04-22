@@ -1,8 +1,4 @@
 # Enki spotlight
-x-access-token
-eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1NTQzNzM1MDYxY2EyOWVhMDAzYTBjMjMiLCJleHAiOjE0OTI4NTUzMTc2ODJ9.Tf0eIX-a7wHYTaCJUi5C4PAB-k6XjSEdgksGreFSYQY
-
-http://insights-staging.enki.com/api/insights/live/0?search=javascript
 
 # electron-react-boilerplate
 
